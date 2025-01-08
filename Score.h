@@ -6,6 +6,7 @@ private:
     int score;
 public:
     Score();
+
     void increase(int amount);
     int getScore() const;
 };

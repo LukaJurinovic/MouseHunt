@@ -6,6 +6,7 @@ private:
     int current_health, max_health;
 public:
     Health(int max_health);
+
     void change_health(int amount);
     int getHealth() const;
 };

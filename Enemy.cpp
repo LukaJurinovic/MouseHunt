@@ -9,7 +9,6 @@
 extern Game* game;
 
 Enemy::Enemy(QGraphicsItem *parent, int max_health) : Entity(parent, max_health), type(1) {
-
     int random_number = rand() % screenWidth;
     setPos(random_number,0);
 

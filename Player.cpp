@@ -2,25 +2,28 @@
 #include <QKeyEvent>
 #include <QTimer>
 #include "Weapons.h"
+#include "Projectile.h"
 #include "ScreenConfig.h"
+#include "Game.h"
 #include "Player.h"
 
-Player::Player(QGraphicsItem *parent, int max_health) : Entity(parent, max_health), Score(), weapon(1){
+extern Game* game;
 
+Player::Player(QGraphicsItem *parent, int max_health) : Entity(parent, max_health), Score(), weapon(1), weaponName("Bullet") {
     setPixmap(QPixmap(":/images/player.png"));
-
     actionTimer = new QTimer(this);
     connect(actionTimer, &QTimer::timeout, this, &Player::processActions);
     actionTimer->start(50);
 
     canShoot = true;
+    canMove = true;
+
     shootCooldownTimer = new QTimer(this);
     shootCooldownTimer->setSingleShot(true);
     connect(shootCooldownTimer, &QTimer::timeout, this, [this]() {
         canShoot = true;
     });
 
-    canMove = true; // Player can move initially
     moveCooldownTimer = new QTimer(this);
     moveCooldownTimer->setSingleShot(true);
     connect(moveCooldownTimer, &QTimer::timeout, this, [this]() {
@@ -30,6 +33,10 @@ Player::Player(QGraphicsItem *parent, int max_health) : Entity(parent, max_healt
 
 int Player::getWeapon() {
     return weapon;
+}
+
+QString Player::getWeaponName() {
+    return weaponName;
 }
 
 void Player::fire_projectile() {
@@ -63,20 +70,14 @@ void Player::fire_projectile() {
 void Player::destroy() {}
 
 void Player::move(int delta_x, int delta_y) {
-    if(!canMove)
+    if (!canMove)
         return;
 
     int newX = x() + delta_x;
     int newY = y() + delta_y;
-    if (newX < 0)
-        newX = 0;
-    else if (newX + 100 > screenWidth)
-        newX = screenWidth - 100;
 
-    if (newY < 0)
-        newY = 0;
-    else if (newY + 100 > screenHeight)
-        newY = screenHeight - 100;
+    handleScreenBorder(newX, newY);
+
     setPos(newX, newY);
 
     canMove = false;
@@ -90,14 +91,13 @@ void Player::check_game_over() {
 }
 
 void Player::keyPressEvent(QKeyEvent *event) {
-
     activeKeys.insert(event->key());
     switch (event->key()) {
         case Qt::Key_Left:
-            move(40,0);
+            move(200,0);
             break;
         case Qt::Key_Right:
-            move(40,0);
+            move(200,0);
             break;
         case Qt::Key_Up:
             move(0, -20);
@@ -110,12 +110,18 @@ void Player::keyPressEvent(QKeyEvent *event) {
             break;
         case Qt::Key_1:
             weapon = 1;
+            weaponName = "Bullet";
+            game->update_weapon();
             break;
         case Qt::Key_2:
             weapon = 2;
+            weaponName = "Fireball";
+            game->update_weapon();
             break;
         case Qt::Key_3:
             weapon = 3;
+            weaponName = "Ice Shard";
+            game->update_weapon();
             break;
     }
 }
@@ -143,4 +149,14 @@ void Player::processActions() {
     move(delta_x, delta_y);
 }
 
-void Player::handleScreenBorder() {/*a eto hahah*/}
+void Player::handleScreenBorder(int& newX, int& newY) {
+    if (newX < 0)
+        newX = 0;
+    else if (newX + boundingRect().width() > screenWidth)
+        newX = screenWidth - boundingRect().width();
+
+    if (newY < 70)
+        newY = 70;
+    else if (newY + boundingRect().height() > screenHeight)
+        newY = screenHeight - boundingRect().height();
+}

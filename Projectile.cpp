@@ -25,12 +25,9 @@ int Projectile::getType() const {
 }
 
 void Projectile::playProjectileSound(){
-    if (!weaponSound)return;
+    if (!weaponSound) return;
 
-    connect(weaponSound, &QMediaPlayer::mediaStatusChanged, [](QMediaPlayer::MediaStatus status) {
-        qDebug() << "Media status changed:" << status;
-    });
-
+    weaponSound->setAudioOutput(audioOutput);
     if (weaponSound->playbackState() == QMediaPlayer::PlayingState) {
         weaponSound->setPosition(0);
     } else if (weaponSound->playbackState() == QMediaPlayer::StoppedState) {
@@ -46,16 +43,12 @@ void Projectile::handleScreenBorder() {
 }
 
 void Projectile::move() {
-
     handleScreenBorder();
-    // provjera kolizija
     QList<QGraphicsItem*> colliding_items = collidingItems();
     for (QGraphicsItem* item : colliding_items) {
         if (Enemy* enemy = dynamic_cast<Enemy*>(item)) {
-            qDebug() << "Collision detected with enemy at" << enemy->pos();
             if (enemy->type == getType()) {
                 enemy->change_health(getDamage());
-                qDebug() << "Enemy health after hit:" << enemy->getHealth();
                 if (enemy->getHealth() <= 0) {
                     scene()->removeItem(enemy);
                     delete enemy;

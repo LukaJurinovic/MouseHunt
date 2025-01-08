@@ -13,7 +13,7 @@ public:
 
     virtual void destroy();
     virtual void move() = 0;  // znaci da podklasa mora nadjacat metodu
-    virtual void handleScreenBorder() = 0;
+    virtual void handleScreenBorder();
 };
 
 #endif // OBJECT2D_H

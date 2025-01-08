@@ -6,7 +6,6 @@
 #include <QSet>
 #include "Entity.h"
 #include "Score.h"
-#include "Projectile.h"
 
 class Player : public Entity, public Score {
     Q_OBJECT
@@ -18,6 +17,7 @@ private:
     QSet<int> activeKeys;
 
     int weapon;
+    QString weaponName;
     bool canShoot;
     bool canMove;
     void processActions();
@@ -25,8 +25,9 @@ public:
     Player(QGraphicsItem* parent = nullptr, int max_health = 0);
 
     int getWeapon();
+    QString getWeaponName();
     void fire_projectile() override;
-    void handleScreenBorder() override;
+    void handleScreenBorder(int& newX, int& newY);
     void keyPressEvent(QKeyEvent* event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
     void move(int delta_x, int delta_y);

@@ -5,3 +5,5 @@ Entity::Entity(QGraphicsItem *parent, int max_health) : Object2D(parent), Health
 void Entity::move() {}
 
 void Entity::fire_projectile() {}
+
+void Entity::handleScreenBorder() {}

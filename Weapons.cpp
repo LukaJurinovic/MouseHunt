@@ -7,19 +7,19 @@
 
 extern Game* game;
 
-Bullet::Bullet(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type){
+Bullet::Bullet(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type) {
     setPixmap(QPixmap(":/images/bullet.png"));
     weaponSound = new QMediaPlayer();
     weaponSound->setSource(QUrl("qrc:/sounds/bullet.wav"));
 }
 
-Fireball::Fireball(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type){
+Fireball::Fireball(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type) {
     //setPixmap(QPixmap(":/images/fireball.png"));
     //weaponSound = new QMediaPlayer();
     //bulletsound->setSource(QUrl("qrc:/sounds/bullet.wav"));
 }
 
-IceShard::IceShard(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type){
+IceShard::IceShard(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type) {
     //setPixmap(QPixmap(":/images/iceshard.png"));
     //weaponSound = new QMediaPlayer();
     //bulletsound->setSource(QUrl("qrc:/sounds/bullet.wav"));
