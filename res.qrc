@@ -9,5 +9,8 @@
         <file>bullet.png</file>
         <file>background.png</file>
         <file>mis.png</file>
+        <file>fireball.png</file>
+        <file>fattie_mis.png</file>
+        <file>pixel_mis.png</file>
     </qresource>
 </RCC>

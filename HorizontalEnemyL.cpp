@@ -8,7 +8,7 @@
 
 extern Game* game;
 
-HorizontalEnemyL::HorizontalEnemyL(QGraphicsItem *parent, int max_health) : Entity(parent, max_health), type(1){
+HorizontalEnemyL::HorizontalEnemyL(QGraphicsItem *parent, int max_health, int type) : Enemy(parent, max_health, type) {
     int random_number = rand() % (screenHeight*5/6) + 70;
     setPos(0, random_number);
 

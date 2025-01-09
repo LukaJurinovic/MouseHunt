@@ -9,7 +9,7 @@
 class Enemy : public Entity {
     Q_OBJECT
 public:
-    Enemy(QGraphicsItem* parent = nullptr, int max_health = 1);
+    Enemy(QGraphicsItem* parent = nullptr, int max_health = 1, int type = 1);
 
     void move() override;
     void handleScreenBorder() override;

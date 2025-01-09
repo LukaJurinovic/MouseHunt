@@ -47,6 +47,7 @@ void Projectile::move() {
     QList<QGraphicsItem*> colliding_items = collidingItems();
     for (QGraphicsItem* item : colliding_items) {
         if (Enemy* enemy = dynamic_cast<Enemy*>(item)) {
+            qDebug()<<enemy->type<<getType();
             if (enemy->type == getType()) {
                 enemy->change_health(getDamage());
                 if (enemy->getHealth() <= 0) {

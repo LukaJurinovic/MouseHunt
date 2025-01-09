@@ -8,11 +8,10 @@
 
 extern Game* game;
 
-Enemy::Enemy(QGraphicsItem *parent, int max_health) : Entity(parent, max_health), type(1) {
-    int random_number = rand() % screenWidth;
-    setPos(random_number,0);
-
+Enemy::Enemy(QGraphicsItem *parent, int max_health, int type) : Entity(parent, max_health), type(type) {
     setPixmap(QPixmap(":/images/mis.png"));
+    int random_number = abs(rand() % screenWidth - boundingRect().width());
+    setPos(random_number,0);
 
     QTimer * timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &Enemy::move);

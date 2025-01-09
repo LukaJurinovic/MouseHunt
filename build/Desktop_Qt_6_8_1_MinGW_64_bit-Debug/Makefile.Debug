@@ -16,7 +16,7 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_MULTIMEDIA_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++1z -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I../../../Shooter2D -I. -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -Idebug -I/include -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ 
+INCPATH       = -I../../../objektnoseminar -I. -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -Idebug -I/include -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
 LIBS        =        C:\Qt\6.8.1\mingw_64\lib\libQt6Multimedia.a C:\Qt\6.8.1\mingw_64\lib\libQt6Widgets.a C:\Qt\6.8.1\mingw_64\lib\libQt6Gui.a C:\Qt\6.8.1\mingw_64\lib\libQt6Network.a C:\Qt\6.8.1\mingw_64\lib\libQt6Core.a -lmingw32 C:\Qt\6.8.1\mingw_64\lib\libQt6EntryPoint.a -lshell32  
@@ -166,9 +166,12 @@ debug/qrc_res.cpp: ../../res.qrc \
 		C:/Qt/6.8.1/mingw_64/bin/rcc.exe \
 		../../mis.png \
 		../../background.png \
+		../../fireball.png \
+		../../pixel_mis.png \
 		../../player.png \
 		../../enemy.png \
 		../../bullet.png \
+		../../fattie_mis.png \
 		../../bgsound.wav \
 		../../bullet.wav
 	C:\Qt\6.8.1\mingw_64\bin\rcc.exe -name res --no-zstd ..\..\res.qrc -o debug\qrc_res.cpp
@@ -335,13 +338,9 @@ debug/moc_Enemy.cpp: ../../Enemy.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
 		../../Health.h \
-		../../Projectile.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.1/mingw_64/bin/moc.exe
-	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/ivanp/Downloads/Shooter2D/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/ivanp/Downloads/Shooter2D -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\Enemy.h -o debug\moc_Enemy.cpp
+	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\Enemy.h -o debug\moc_Enemy.cpp
 
 debug/moc_HorizontalEnemyL.cpp: ../../HorizontalEnemyL.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
@@ -487,6 +486,7 @@ debug/moc_HorizontalEnemyL.cpp: ../../HorizontalEnemyL.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QObject \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
+		../../Enemy.h \
 		../../Entity.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsScene \
@@ -496,13 +496,9 @@ debug/moc_HorizontalEnemyL.cpp: ../../HorizontalEnemyL.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
 		../../Health.h \
-		../../Projectile.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.1/mingw_64/bin/moc.exe
-	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/ivanp/Downloads/Shooter2D/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/ivanp/Downloads/Shooter2D -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\HorizontalEnemyL.h -o debug\moc_HorizontalEnemyL.cpp
+	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\HorizontalEnemyL.h -o debug\moc_HorizontalEnemyL.cpp
 
 debug/moc_HorizontalEnemyR.cpp: ../../HorizontalEnemyR.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
@@ -648,6 +644,7 @@ debug/moc_HorizontalEnemyR.cpp: ../../HorizontalEnemyR.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QObject \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
+		../../Enemy.h \
 		../../Entity.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsScene \
@@ -657,13 +654,9 @@ debug/moc_HorizontalEnemyR.cpp: ../../HorizontalEnemyR.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
 		../../Health.h \
-		../../Projectile.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.1/mingw_64/bin/moc.exe
-	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/ivanp/Downloads/Shooter2D/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/ivanp/Downloads/Shooter2D -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\HorizontalEnemyR.h -o debug\moc_HorizontalEnemyR.cpp
+	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\HorizontalEnemyR.h -o debug\moc_HorizontalEnemyR.cpp
 
 debug/moc_Object2D.cpp: ../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
@@ -817,7 +810,7 @@ debug/moc_Object2D.cpp: ../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.1/mingw_64/bin/moc.exe
-	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/ivanp/Downloads/Shooter2D/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/ivanp/Downloads/Shooter2D -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\Object2D.h -o debug\moc_Object2D.cpp
+	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\Object2D.h -o debug\moc_Object2D.cpp
 
 debug/moc_Player.cpp: ../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
@@ -963,14 +956,6 @@ debug/moc_Player.cpp: ../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpixelformat.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QObject \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qurl.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
 		../../Entity.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
@@ -981,14 +966,10 @@ debug/moc_Player.cpp: ../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
 		../../Health.h \
-		../../Projectile.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h \
 		../../Score.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.1/mingw_64/bin/moc.exe
-	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/ivanp/Downloads/Shooter2D/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/ivanp/Downloads/Shooter2D -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\Player.h -o debug\moc_Player.cpp
+	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\Player.h -o debug\moc_Player.cpp
 
 debug/moc_Projectile.cpp: ../../Projectile.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
@@ -1135,6 +1116,16 @@ debug/moc_Projectile.cpp: ../../Projectile.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QAudioOutput \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qurl.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QObject \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
@@ -1146,7 +1137,7 @@ debug/moc_Projectile.cpp: ../../Projectile.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.8.1/mingw_64/bin/moc.exe
-	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/ivanp/Downloads/Shooter2D/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/ivanp/Downloads/Shooter2D -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\Projectile.h -o debug\moc_Projectile.cpp
+	C:\Qt\6.8.1\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.8.1/mingw_64/mkspecs/win32-g++ -IC:/Users/Lenovo/Documents/Shooter_2D/objektnoseminar -IC:/Qt/6.8.1/mingw_64/include -IC:/Qt/6.8.1/mingw_64/include/QtMultimedia -IC:/Qt/6.8.1/mingw_64/include/QtWidgets -IC:/Qt/6.8.1/mingw_64/include/QtGui -IC:/Qt/6.8.1/mingw_64/include/QtNetwork -IC:/Qt/6.8.1/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++ -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include -IC:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed -IC:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include ..\..\Projectile.h -o debug\moc_Projectile.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1369,23 +1360,18 @@ debug/Enemy.o: ../../Enemy.cpp C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpainterpath.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
 		../../Entity.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../Health.h \
-		../../Projectile.h \
 		../../Score.h \
 		../../ScreenConfig.h \
 		../../Enemy.h
@@ -1542,11 +1528,7 @@ debug/Entity.o: ../../Entity.cpp ../../Entity.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfont.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
-		../../Health.h \
-		../../Projectile.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h
+		../../Health.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Entity.o ..\..\Entity.cpp
 
 debug/Game.o: ../../Game.cpp C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
@@ -1768,6 +1750,9 @@ debug/Game.o: ../../Game.cpp C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
@@ -1775,7 +1760,6 @@ debug/Game.o: ../../Game.cpp C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../Health.h \
-		../../Projectile.h \
 		../../Score.h \
 		../../ScreenConfig.h \
 		../../Enemy.h \
@@ -1989,26 +1973,22 @@ debug/HorizontalEnemyL.o: ../../HorizontalEnemyL.cpp C:/Qt/6.8.1/mingw_64/includ
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpainterpath.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
 		../../Entity.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../Health.h \
-		../../Projectile.h \
 		../../Score.h \
 		../../ScreenConfig.h \
-		../../HorizontalEnemyL.h
+		../../HorizontalEnemyL.h \
+		../../Enemy.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\HorizontalEnemyL.o ..\..\HorizontalEnemyL.cpp
 
 debug/HorizontalEnemyR.o: ../../HorizontalEnemyR.cpp C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
@@ -2214,26 +2194,22 @@ debug/HorizontalEnemyR.o: ../../HorizontalEnemyR.cpp C:/Qt/6.8.1/mingw_64/includ
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpainterpath.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
 		../../Entity.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../Health.h \
-		../../Projectile.h \
 		../../Score.h \
 		../../ScreenConfig.h \
-		../../HorizontalEnemyR.h
+		../../HorizontalEnemyR.h \
+		../../Enemy.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\HorizontalEnemyR.o ..\..\HorizontalEnemyR.cpp
 
 debug/Object2D.o: ../../Object2D.cpp ../../Object2D.h \
@@ -2571,13 +2547,6 @@ debug/Player.o: ../../Player.cpp C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphic
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qkeysequence.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QAudioOutput \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h \
@@ -2586,13 +2555,41 @@ debug/Player.o: ../../Player.cpp C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphic
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpainterpath.h \
 		../../Projectile.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QAudioOutput \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../ScreenConfig.h \
+		../../Game.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsView \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsview.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpainter.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontinfo.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontmetrics.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qwidget.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qaction.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qicon.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpalette.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qcursor.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qbitmap.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
 		../../Entity.h \
 		../../Health.h \
 		../../Score.h
@@ -2743,6 +2740,16 @@ debug/Projectile.o: ../../Projectile.cpp ../../Projectile.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QAudioOutput \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qurl.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QObject \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
@@ -2777,7 +2784,6 @@ debug/Projectile.o: ../../Projectile.cpp ../../Projectile.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qbitmap.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qiodevice.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qurl.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qeventpoint.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qvector2d.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qvectornd.h \
@@ -2811,15 +2817,11 @@ debug/Projectile.o: ../../Projectile.cpp ../../Projectile.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
 		../../Score.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Projectile.o ..\..\Projectile.cpp
 
@@ -3033,25 +3035,30 @@ debug/Weapons.o: ../../Weapons.cpp C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpainterpath.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
+		../../Entity.h \
+		../../Object2D.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
+		../../Health.h \
+		../../Score.h \
+		../../Weapons.h \
+		../../Projectile.h \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QAudioOutput \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
-		../../Entity.h \
-		../../Object2D.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
-		../../Health.h \
-		../../Projectile.h \
-		../../Score.h \
-		../../Weapons.h
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
+		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\Weapons.o ..\..\Weapons.cpp
 
 debug/main.o: ../../main.cpp C:/Qt/6.8.1/mingw_64/include/QtWidgets/QApplication \
@@ -3256,26 +3263,18 @@ debug/main.o: ../../main.cpp C:/Qt/6.8.1/mingw_64/include/QtWidgets/QApplication
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsScene \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		../../Player.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpainterpath.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSet \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qtaudio.h \
-		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudio.h \
 		../../Entity.h \
 		../../Object2D.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../Health.h \
-		../../Projectile.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QTimer \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qtimer.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qbasictimer.h \
 		../../Score.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\..\main.cpp
 

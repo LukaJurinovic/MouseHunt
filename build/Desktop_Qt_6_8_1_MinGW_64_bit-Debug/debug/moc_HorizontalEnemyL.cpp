@@ -60,7 +60,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN16HorizontalEnemyLE[] = {
 };
 
 Q_CONSTINIT const QMetaObject HorizontalEnemyL::staticMetaObject = { {
-    QMetaObject::SuperData::link<Entity::staticMetaObject>(),
+    QMetaObject::SuperData::link<Enemy::staticMetaObject>(),
     qt_meta_stringdata_ZN16HorizontalEnemyLE.offsetsAndSizes,
     qt_meta_data_ZN16HorizontalEnemyLE,
     qt_static_metacall,
@@ -91,12 +91,12 @@ void *HorizontalEnemyL::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_ZN16HorizontalEnemyLE.stringdata0))
         return static_cast<void*>(this);
-    return Entity::qt_metacast(_clname);
+    return Enemy::qt_metacast(_clname);
 }
 
 int HorizontalEnemyL::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = Entity::qt_metacall(_c, _id, _a);
+    _id = Enemy::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP

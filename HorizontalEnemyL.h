@@ -4,12 +4,12 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
-#include "Entity.h"
+#include "Enemy.h"
 
-class HorizontalEnemyL : public Entity {
+class HorizontalEnemyL : public Enemy {
     Q_OBJECT
 public:
-    HorizontalEnemyL(QGraphicsItem* parent = nullptr, int max_health = 1);
+    HorizontalEnemyL(QGraphicsItem* parent = nullptr, int max_health = 1, int type = 2);
 
     void move() override;
     void handleScreenBorder() override;
