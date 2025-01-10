@@ -9,8 +9,8 @@
 
 extern Game* game;
 
-Player::Player(QGraphicsItem *parent, int max_health) : Entity(parent, max_health), Score(), weapon(1), weaponName("Bullet") {
-    setPixmap(QPixmap(":/images/player.png"));
+Player::Player(QGraphicsItem *parent, int max_health) : Entity(parent, max_health), Score(), weapon(1), weaponName("Gun") {
+    setPixmap(QPixmap(":/images/evil_cat.png"));
     actionTimer = new QTimer(this);
     connect(actionTimer, &QTimer::timeout, this, &Player::processActions);
     actionTimer->start(50);
@@ -48,10 +48,10 @@ void Player::fire_projectile() {
         projectile = new Bullet();
         break;
     case 2:
-        projectile = new Fireball();
+        projectile = new Cheese();
         break;
     case 3:
-        projectile = new IceShard();
+        projectile = new MouseTrap();
         break;
     default:
         projectile = new Bullet();
@@ -110,17 +110,17 @@ void Player::keyPressEvent(QKeyEvent *event) {
             break;
         case Qt::Key_1:
             weapon = 1;
-            weaponName = "Bullet";
+            weaponName = "Gun";
             game->update_weapon();
             break;
         case Qt::Key_2:
             weapon = 2;
-            weaponName = "Fireball";
+            weaponName = "Cheese";
             game->update_weapon();
             break;
         case Qt::Key_3:
             weapon = 3;
-            weaponName = "Ice Shard";
+            weaponName = "Mouse Trap";
             game->update_weapon();
             break;
     }

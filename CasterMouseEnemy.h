@@ -9,7 +9,7 @@
 class CasterMouseEnemy : public Enemy {
     Q_OBJECT
 public:
-    CasterMouseEnemy(QGraphicsItem* parent = nullptr, int max_health = 1, int type = 2);
+    CasterMouseEnemy(QGraphicsItem* parent = nullptr, int max_health = 1, int type = 3);
     void move() override;
     void fireProjectile() override;
 };

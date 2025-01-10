@@ -6,6 +6,7 @@
 #include "Weapons.h"
 #include "Player.h"
 #include "ScreenConfig.h"
+#include "Enemy.h"
 
 extern Game* game;
 
@@ -15,15 +16,37 @@ Bullet::Bullet(QGraphicsItem* parent, int damage, int type) : Projectile(parent,
     weaponSound->setSource(QUrl("qrc:/sounds/bullet.wav"));
 }
 
-Fireball::Fireball(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type) {
-    setPixmap(QPixmap(":/images/fireball.png"));
+Cheese::Cheese(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type) {
+    setPixmap(QPixmap(":/images/cheese.png"));
     weaponSound = new QMediaPlayer();
-    weaponSound->setSource(QUrl("qrc:/sounds/bullet.wav"));
+    //weaponSound->setSource(QUrl("qrc:/sounds/bullet.wav"));
 }
 
-IceShard::IceShard(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type) {
-    //setPixmap(QPixmap(":/images/iceshard.png"));
-    //weaponSound = new QMediaPlayer();
+void Cheese::move() {
+    handleScreenBorder();
+    QList<QGraphicsItem*> colliding_items = collidingItems();
+    for (QGraphicsItem* item : colliding_items) {
+        if (Enemy* enemy = dynamic_cast<Enemy*>(item)) {
+            if (enemy->getType() == getType()) {
+                enemy->change_health(getDamage());
+                enemy->sleep(1000);
+                if (enemy->getHealth() <= 0) {
+                    enemy->sleeping = false;
+                    enemy->destroy();
+                    game->player->increase(1);
+                    game->update_score();
+                }
+            }
+            destroy();
+            return;
+        }
+    }
+    setPos(x(), y() - 20);
+}
+
+MouseTrap::MouseTrap(QGraphicsItem* parent, int damage, int type) : Projectile(parent, damage, type) {
+    setPixmap(QPixmap(":/images/mouse_trap.png"));
+    weaponSound = new QMediaPlayer();
     //weaponSound->setSource(QUrl("qrc:/sounds/bullet.wav"));
 }
 

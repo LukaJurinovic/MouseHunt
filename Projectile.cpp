@@ -26,7 +26,6 @@ int Projectile::getType() const {
 
 void Projectile::playProjectileSound(){
     if (!weaponSound) return;
-
     weaponSound->setAudioOutput(audioOutput);
     if (weaponSound->playbackState() == QMediaPlayer::PlayingState) {
         weaponSound->setPosition(0);
@@ -50,8 +49,7 @@ void Projectile::move() {
             if (enemy->getType() == getType()) {
                 enemy->change_health(getDamage());
                 if (enemy->getHealth() <= 0) {
-                    scene()->removeItem(enemy);
-                    delete enemy;
+                    enemy->destroy();
                     game->player->increase(1);
                     game->update_score();
                 }

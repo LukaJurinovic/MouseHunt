@@ -40,19 +40,19 @@ Game::Game(QWidget *parent):QGraphicsView(parent) {
     scene->addItem(hudContainer);
 
     show_health = new QGraphicsTextItem(hudContainer);
-    show_health->setDefaultTextColor(Qt::red);
+    show_health->setDefaultTextColor(Qt::black);
     show_health->setFont(QFont("times", 16));
     show_health->setPos(10, 20);
     update_health();
 
     show_score = new QGraphicsTextItem(hudContainer);
-    show_score->setDefaultTextColor(Qt::blue);
+    show_score->setDefaultTextColor(Qt::black);
     show_score->setFont(QFont("times", 16));
     show_score->setPos(show_health->x() + show_health->boundingRect().width() + 20, 20);
     update_score();
 
     show_weapon = new QGraphicsTextItem(hudContainer);
-    show_weapon->setDefaultTextColor(Qt::green);
+    show_weapon->setDefaultTextColor(Qt::black);
     show_weapon->setFont(QFont("times", 16));
     show_weapon->setPos(show_score->x() + show_score->boundingRect().width() + 20, 20);
     update_weapon();

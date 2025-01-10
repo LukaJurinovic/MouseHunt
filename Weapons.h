@@ -10,14 +10,15 @@ public:
     Bullet(QGraphicsItem* parent = nullptr, int damage = -1, int type = 1);
 };
 
-class Fireball : public Projectile {
+class Cheese : public Projectile {
 public:
-    Fireball(QGraphicsItem* parent = nullptr, int damage = -1, int type = 2);
+    Cheese(QGraphicsItem* parent = nullptr, int damage = -1, int type = 2);
+    void move() override;
 };
 
-class IceShard : public Projectile {
+class MouseTrap : public Projectile {
 public:
-    IceShard(QGraphicsItem* parent = nullptr, int damage = -1, int type = 3);
+    MouseTrap(QGraphicsItem* parent = nullptr, int damage = -1, int type = 3);
 };
 
 class LaserBeam : public Projectile {

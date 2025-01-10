@@ -31,6 +31,21 @@ int Enemy::getType() {
     return type;
 }
 
+void Enemy::sleep(int duration) {
+    sleepTimer = nullptr;
+    if (!sleeping) {
+        sleeping = true;
+        sleepTimer = new QTimer(this);
+        connect(sleepTimer, &QTimer::timeout, [this]() {
+            sleeping = false;
+            delete sleepTimer;
+            sleepTimer = nullptr;
+        });
+
+        sleepTimer->start(duration);
+    }
+}
+
 void Enemy::move(){
     QList<QGraphicsItem*> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; ++i) {

@@ -13,5 +13,8 @@
         <file>fattie_mis.png</file>
         <file>pixel_mis.png</file>
         <file>laser_beam.png</file>
+        <file>evil_cat.png</file>
+        <file>cheese.png</file>
+        <file>mouse_trap.png</file>
     </qresource>
 </RCC>

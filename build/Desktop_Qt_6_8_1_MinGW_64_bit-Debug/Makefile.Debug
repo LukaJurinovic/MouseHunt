@@ -179,10 +179,13 @@ debug/qrc_res.cpp: ../../res.qrc \
 		../../mis.png \
 		../../background.png \
 		../../fireball.png \
+		../../cheese.png \
 		../../pixel_mis.png \
 		../../laser_beam.png \
 		../../player.png \
 		../../enemy.png \
+		../../evil_cat.png \
+		../../mouse_trap.png \
 		../../bullet.png \
 		../../fattie_mis.png \
 		../../bgsound.wav \

@@ -9,7 +9,8 @@
 class FatMouseEnemy : public Enemy {
     Q_OBJECT
 public:
-    FatMouseEnemy(QGraphicsItem* parent = nullptr, int max_health = 3, int type = 1);
+    FatMouseEnemy(QGraphicsItem* parent = nullptr, int max_health = 3, int type = 2);
+    void move() override;
 };
 
 
