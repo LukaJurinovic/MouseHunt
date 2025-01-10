@@ -13,7 +13,6 @@ public:
 
     void move() override;
     void handleScreenBorder() override;
-    int type;
 };
 
 #endif // HORIZONTALENEMYL_H

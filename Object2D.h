@@ -12,7 +12,7 @@ public:
     Object2D(QGraphicsItem* parent = nullptr);
 
     virtual void destroy();
-    virtual void move() = 0;  // znaci da podklasa mora nadjacat metodu
+    virtual void move() = 0;
     virtual void handleScreenBorder();
 };
 

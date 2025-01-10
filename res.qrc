@@ -12,5 +12,6 @@
         <file>fireball.png</file>
         <file>fattie_mis.png</file>
         <file>pixel_mis.png</file>
+        <file>laser_beam.png</file>
     </qresource>
 </RCC>

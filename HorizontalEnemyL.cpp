@@ -39,7 +39,7 @@ void HorizontalEnemyL::move(){
             return;
         }
     }
-    setPos(x()+10, y());
+    setPos(x() + 10, y());
 
     handleScreenBorder();
 }

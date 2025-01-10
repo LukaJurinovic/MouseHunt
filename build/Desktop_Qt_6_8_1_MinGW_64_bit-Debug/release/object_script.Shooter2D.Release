@@ -1,5 +1,7 @@
+release/CasterMouseEnemy.o
 release/Enemy.o
 release/Entity.o
+release/FatMouseEnemy.o
 release/Game.o
 release/Health.o
 release/HorizontalEnemyL.o
@@ -12,7 +14,9 @@ release/ScreenConfig.o
 release/Weapons.o
 release/main.o
 release/qrc_res.o
+release/moc_CasterMouseEnemy.o
 release/moc_Enemy.o
+release/moc_FatMouseEnemy.o
 release/moc_HorizontalEnemyL.o
 release/moc_HorizontalEnemyR.o
 release/moc_Object2D.o

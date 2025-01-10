@@ -27,6 +27,10 @@ void Enemy::handleScreenBorder(){
     }
 }
 
+int Enemy::getType() {
+    return type;
+}
+
 void Enemy::move(){
     QList<QGraphicsItem*> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; ++i) {
@@ -38,7 +42,9 @@ void Enemy::move(){
             return;
         }
     }
-    setPos(x(),y()+10);
+    setPos(x(), y() + 10);
 
     handleScreenBorder();
 }
+
+void Enemy::fireProjectile() {}

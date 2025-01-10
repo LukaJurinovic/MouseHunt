@@ -7,9 +7,10 @@
 #include <QAudioOutput>
 #include "Game.h"
 #include "ScreenConfig.h"
-#include "Enemy.h"
+#include "FatMouseEnemy.h"
 #include "HorizontalEnemyL.h"
 #include "HorizontalEnemyR.h"
+#include "CasterMouseEnemy.h"
 
 Game::Game(QWidget *parent):QGraphicsView(parent) {
     //ovo su globalne varijable
@@ -66,9 +67,10 @@ Game::Game(QWidget *parent):QGraphicsView(parent) {
 
     hudContainer->setPos(0, 0);
 
-    spawn<Enemy>(2000);
-    spawn<HorizontalEnemyL>(5000);
-    spawn<HorizontalEnemyR>(5000);
+    spawn<FatMouseEnemy>(3000);
+    spawn<HorizontalEnemyL>(10000);
+    spawn<HorizontalEnemyR>(10000);
+    spawn<CasterMouseEnemy>(7000);
 
     QMediaPlayer* music = new QMediaPlayer(this);
     QAudioOutput* audioOutput = new QAudioOutput(this);

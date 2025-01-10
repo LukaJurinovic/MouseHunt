@@ -1,5 +1,7 @@
+debug/CasterMouseEnemy.o
 debug/Enemy.o
 debug/Entity.o
+debug/FatMouseEnemy.o
 debug/Game.o
 debug/Health.o
 debug/HorizontalEnemyL.o
@@ -12,7 +14,9 @@ debug/ScreenConfig.o
 debug/Weapons.o
 debug/main.o
 debug/qrc_res.o
+debug/moc_CasterMouseEnemy.o
 debug/moc_Enemy.o
+debug/moc_FatMouseEnemy.o
 debug/moc_HorizontalEnemyL.o
 debug/moc_HorizontalEnemyR.o
 debug/moc_Object2D.o

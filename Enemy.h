@@ -8,12 +8,15 @@
 
 class Enemy : public Entity {
     Q_OBJECT
+private:
+    int type;
 public:
     Enemy(QGraphicsItem* parent = nullptr, int max_health = 1, int type = 1);
 
     void move() override;
+    virtual void fireProjectile();
     void handleScreenBorder() override;
-    int type;
+    int getType();
 };
 
 #endif // ENEMY_H
