@@ -49,8 +49,8 @@ void CasterMouseEnemy::move() {
 
 void CasterMouseEnemy::fireProjectile() {
     if (qAbs(game->player->x() - x()) <= 50) { // Adjust range as needed
-        Projectile* projectile = new LaserBeam();
-        if (projectile) {
+        Projectile* projectile = new Magic();
+        if (projectile && !(isDestroyed())) {
             projectile->setPos(x() + 50, y()); // Position the projectile slightly to the right of the enemy
             scene()->addItem(projectile);
             projectile->playProjectileSound(); // Play sound if implemented

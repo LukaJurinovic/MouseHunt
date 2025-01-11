@@ -10,7 +10,7 @@
 extern Game* game;
 
 Player::Player(QGraphicsItem *parent, int max_health) : Entity(parent, max_health), Score(), weapon(1), weaponName("Gun") {
-    setPixmap(QPixmap(":/images/evil_cat.png"));
+    setPixmap(QPixmap(":/images/evil_cat_with_gun.png"));
     actionTimer = new QTimer(this);
     connect(actionTimer, &QTimer::timeout, this, &Player::processActions);
     actionTimer->start(50);
@@ -58,7 +58,12 @@ void Player::fire_projectile() {
     }
 
     if (projectile) {
-        projectile->setPos(x() + 42, y());
+        if(projectile->getType() == 1) {
+            projectile->setPos(x() + 180, y());
+        }
+        else {
+           projectile->setPos(x() + 42, y());
+        }
         scene()->addItem(projectile);
         projectile->playProjectileSound();
     }
@@ -111,17 +116,23 @@ void Player::keyPressEvent(QKeyEvent *event) {
         case Qt::Key_1:
             weapon = 1;
             weaponName = "Gun";
+            setPixmap(QPixmap(":/images/evil_cat_with_gun.png"));
             game->update_weapon();
+            game->update_weapon_image(":/images/desert_eagle.png", weapon);
             break;
         case Qt::Key_2:
             weapon = 2;
             weaponName = "Cheese";
+            setPixmap(QPixmap(":/images/evil_cat.png"));
             game->update_weapon();
+            game->update_weapon_image(":/images/cheese.png", weapon);
             break;
         case Qt::Key_3:
             weapon = 3;
             weaponName = "Mouse Trap";
+            setPixmap(QPixmap(":/images/evil_cat.png"));
             game->update_weapon();
+            game->update_weapon_image(":/images/mouse_trap.png", weapon);
             break;
     }
 }

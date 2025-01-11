@@ -21,9 +21,9 @@ public:
     MouseTrap(QGraphicsItem* parent = nullptr, int damage = -1, int type = 3);
 };
 
-class LaserBeam : public Projectile {
+class Magic : public Projectile {
 public:
-    LaserBeam(QGraphicsItem* parent = nullptr, int damage = -1, int type = 0);
+    Magic(QGraphicsItem* parent = nullptr, int damage = -1, int type = 0);
     void handleScreenBorder() override;
     void move() override;
 };

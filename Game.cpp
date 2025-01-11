@@ -54,8 +54,12 @@ Game::Game(QWidget *parent):QGraphicsView(parent) {
     show_weapon = new QGraphicsTextItem(hudContainer);
     show_weapon->setDefaultTextColor(Qt::black);
     show_weapon->setFont(QFont("times", 16));
-    show_weapon->setPos(show_score->x() + show_score->boundingRect().width() + 20, 20);
+    show_weapon->setPos(show_score->x() + show_score->boundingRect().width() + 30, 20);
     update_weapon();
+
+    show_weapon_image = new QGraphicsPixmapItem(hudContainer);
+    show_weapon_image->setPos(show_weapon->x() + show_weapon->boundingRect().width() + 40, 5);
+    update_weapon_image(":/images/desert_eagle.png", player->getWeapon());
 
     exitButton = new QPushButton("X", this);
     exitButton->setFixedSize(40, 40);
@@ -71,7 +75,7 @@ Game::Game(QWidget *parent):QGraphicsView(parent) {
     spawn<HorizontalEnemyL>(10000);
     spawn<HorizontalEnemyR>(10000);
     spawn<CasterMouseEnemy>(7000);
-
+    /*
     QMediaPlayer* music = new QMediaPlayer(this);
     QAudioOutput* audioOutput = new QAudioOutput(this);
     music->setAudioOutput(audioOutput);
@@ -79,7 +83,7 @@ Game::Game(QWidget *parent):QGraphicsView(parent) {
     audioOutput->setVolume(0.5);
     music->setLoops(QMediaPlayer::Infinite);
     music->play();
-
+    */
     show();
 }
 
@@ -104,5 +108,20 @@ void Game::update_score() {
 
 void Game::update_weapon() {
     show_weapon->setPlainText(QString("Weapon: ") + player->getWeaponName());
+}
+
+void Game::update_weapon_image(QString path, int type) {
+    show_weapon_image->setPixmap(QPixmap(path));
+    switch(type) {
+    case 1:
+        show_weapon_image->setPos(show_weapon->x() + show_weapon->boundingRect().width() + 40, 5);
+        break;
+    case 2:
+        show_weapon_image->setPos(show_weapon->x() + show_weapon->boundingRect().width() + 10, -35);
+        break;
+    case 3:
+        show_weapon_image->setPos(show_weapon->x() + show_weapon->boundingRect().width() + 40, -10);
+        break;
+    }
 }
 

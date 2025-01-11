@@ -50,20 +50,20 @@ MouseTrap::MouseTrap(QGraphicsItem* parent, int damage, int type) : Projectile(p
     //weaponSound->setSource(QUrl("qrc:/sounds/bullet.wav"));
 }
 
-LaserBeam::LaserBeam(QGraphicsItem *parent, int damage, int type)  : Projectile(parent, damage, type) {
-    setPixmap(QPixmap(":/images/laser_beam.png"));
+Magic::Magic(QGraphicsItem *parent, int damage, int type)  : Projectile(parent, damage, type) {
+    setPixmap(QPixmap(":/images/purple.png"));
     weaponSound = new QMediaPlayer();
     weaponSound->setSource(QUrl("qrc:/sounds/bullet.wav"));
 }
 
-void LaserBeam::handleScreenBorder() {
+void Magic::handleScreenBorder() {
     if (pos().y() > screenHeight) {
         destroy();
         return;
     }
 }
 
-void LaserBeam::move() {
+void Magic::move() {
     handleScreenBorder();
     QList<QGraphicsItem*> colliding_items = collidingItems();
     for (QGraphicsItem* item : colliding_items) {

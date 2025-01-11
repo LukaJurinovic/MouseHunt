@@ -2,6 +2,7 @@
     <qresource prefix="/sounds">
         <file>bgsound.wav</file>
         <file>bullet.wav</file>
+        <file>squeak.ogg</file>
     </qresource>
     <qresource prefix="/images">
         <file>player.png</file>
@@ -16,5 +17,10 @@
         <file>evil_cat.png</file>
         <file>cheese.png</file>
         <file>mouse_trap.png</file>
+        <file>left_rat.png</file>
+        <file>right_rat.png</file>
+        <file>purple.png</file>
+        <file>evil_cat_with_gun.png</file>
+        <file>desert_eagle.png</file>
     </qresource>
 </RCC>

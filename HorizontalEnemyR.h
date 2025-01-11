@@ -9,7 +9,7 @@
 class HorizontalEnemyR : public Enemy {
     Q_OBJECT
 public:
-    HorizontalEnemyR(QGraphicsItem* parent = nullptr, int max_health = 1, int type = 2);
+    HorizontalEnemyR(QGraphicsItem* parent = nullptr, int max_health = 1, int type = 1);
 
     void move() override;
     void handleScreenBorder() override;

@@ -15,6 +15,7 @@ public:
     QGraphicsTextItem* show_health;
     QGraphicsTextItem* show_score;
     QGraphicsTextItem* show_weapon;
+    QGraphicsPixmapItem* show_weapon_image;
     QPushButton* exitButton;
     Game(QWidget* parent = 0);
 
@@ -24,6 +25,7 @@ public:
     void update_health();
     void update_score();
     void update_weapon();
+    void update_weapon_image(QString path, int type);
 };
 
 #endif // GAME_H

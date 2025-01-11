@@ -12,7 +12,7 @@ HorizontalEnemyR::HorizontalEnemyR(QGraphicsItem *parent, int max_health, int ty
     int random_number = rand() % (screenHeight*5/6) + 70;
     setPos(screenWidth, random_number);
 
-    setPixmap(QPixmap(":/images/enemy.png"));
+    setPixmap(QPixmap(":/images/right_rat.png"));
 
     QTimer * timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &HorizontalEnemyR::move);
