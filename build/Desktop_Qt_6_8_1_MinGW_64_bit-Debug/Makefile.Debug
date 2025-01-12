@@ -183,6 +183,7 @@ debug/qrc_res.cpp: ../../res.qrc \
 		../../cheese.png \
 		../../pixel_mis.png \
 		../../right_rat.png \
+		../../obicni_mis.png \
 		../../laser_beam.png \
 		../../left_rat.png \
 		../../evil_cat_with_gun.png \

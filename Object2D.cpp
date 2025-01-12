@@ -3,7 +3,8 @@
 Object2D::Object2D(QGraphicsItem *parent) : QGraphicsPixmapItem(parent) {}
 
 void Object2D::destroy() {
-    scene()->removeItem(this);
+    if(scene())
+        scene()->removeItem(this);
     delete this;
 }
 

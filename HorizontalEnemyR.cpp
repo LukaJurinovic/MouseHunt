@@ -26,16 +26,6 @@ void HorizontalEnemyR::handleScreenBorder(){
 }
 
 void HorizontalEnemyR::move(){
-    QList<QGraphicsItem*> colliding_items = collidingItems();
-    for(int i = 0, n = colliding_items.size(); i < n; ++i) {
-        if(typeid(*(colliding_items[i])) == typeid(Player)) {
-            game->player->takeDamage(-1);
-            game->update_health();
-            destroy();
-            return;
-        }
-    }
     setPos(x() - 20, y());
-
     handleScreenBorder();
 }

@@ -11,7 +11,7 @@
 extern Game* game;
 
 Enemy::Enemy(QGraphicsItem *parent, int max_health, int type) : Entity(parent, max_health), type(type) {
-    setPixmap(QPixmap(":/images/mis.png"));
+    setPixmap(QPixmap(":/images/obicni_mis.png"));
     int random_number = abs(rand() % screenWidth - boundingRect().width());
     setPos(random_number,0);
     QTimer * timer = new QTimer(this);
@@ -64,6 +64,7 @@ void Enemy::destroy() {
         if (state == QMediaPlayer::StoppedState) {
             mediaPlayer->deleteLater();
             audioOutput->deleteLater();
+            this->deleteLater();
             // trebali smo ovako da izbjegnemo seg fault
             QTimer::singleShot(0, this, &QObject::deleteLater);
         }

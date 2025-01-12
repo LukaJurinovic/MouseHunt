@@ -47,7 +47,6 @@ void Projectile::move() {
     for (QGraphicsItem* item : colliding_items) {
         if (Enemy* enemy = dynamic_cast<Enemy*>(item)) {
             if (enemy->getType() == getType()) {
-                qDebug() << "test";
                 if (getType() == 2 && enemy->getHealth() > getDamage()) {
                     qDebug() << "a tribalo je"; //neznan luka iden rucat, nmg gladan aj pls uberi ovo
                     QMediaPlayer* mediaPlayer = new QMediaPlayer(this);
