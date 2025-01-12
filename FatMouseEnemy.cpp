@@ -20,14 +20,14 @@ void FatMouseEnemy::move() {
         QList<QGraphicsItem*> colliding_items = collidingItems();
         for(int i = 0, n = colliding_items.size(); i < n; ++i) {
             if(typeid(*(colliding_items[i])) == typeid(Player)) {
-                game->player->change_health(-1);
+                game->player->takeDamage(-1);
                 game->player->check_game_over();
                 game->update_health();
                 destroy();
                 return;
             }
         }
-        setPos(x(), y() + 10);
+        setPos(x(), y() + 6);
 
         handleScreenBorder();
     }

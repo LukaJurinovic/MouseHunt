@@ -19,6 +19,7 @@ public:
 class MouseTrap : public Projectile {
 public:
     MouseTrap(QGraphicsItem* parent = nullptr, int damage = -1, int type = 3);
+    void move() override;
 };
 
 class Magic : public Projectile {

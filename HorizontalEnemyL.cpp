@@ -21,9 +21,6 @@ HorizontalEnemyL::HorizontalEnemyL(QGraphicsItem *parent, int max_health, int ty
 
 void HorizontalEnemyL::handleScreenBorder(){
     if (pos().x() > screenWidth){
-        /*game->player->change_health(-1);
-        game->player->check_game_over();
-        game->update_health();*/
         destroy();
     }
 }
@@ -32,14 +29,14 @@ void HorizontalEnemyL::move(){
     QList<QGraphicsItem*> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; ++i) {
         if(typeid(*(colliding_items[i])) == typeid(Player)) {
-            game->player->change_health(-1);
+            game->player->takeDamage(-1);
             game->player->check_game_over();
             game->update_health();
             destroy();
             return;
         }
     }
-    setPos(x() + 10, y());
+    setPos(x() + 20, y());
 
     handleScreenBorder();
 }

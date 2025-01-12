@@ -22,7 +22,7 @@ Enemy::Enemy(QGraphicsItem *parent, int max_health, int type) : Entity(parent, m
 
 void Enemy::handleScreenBorder(){
     if (pos().y() > screenHeight && !destroyed){
-        game->player->change_health(-1);
+        game->player->takeDamage(-1);
         game->player->check_game_over();
         game->update_health();
         scene()->removeItem(this);
@@ -84,7 +84,7 @@ void Enemy::move(){
     QList<QGraphicsItem*> colliding_items = collidingItems();
     for(int i = 0, n = colliding_items.size(); i < n; ++i) {
         if(typeid(*(colliding_items[i])) == typeid(Player) && !destroyed) {
-            game->player->change_health(-1);
+            game->player->takeDamage(-1);
             game->player->check_game_over();
             game->update_health();
             scene()->removeItem(this);

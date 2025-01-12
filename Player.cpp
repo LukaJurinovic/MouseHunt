@@ -17,6 +17,12 @@ Player::Player(QGraphicsItem *parent, int max_health) : Entity(parent, max_healt
 
     canShoot = true;
     canMove = true;
+    iFrames=false;
+
+    damageSoundPlayer=new QMediaPlayer(this);
+    damageSoundPlayer->setSource(QUrl("qrc:/sounds/meow.wav"));
+    audioOutput = new QAudioOutput(this);
+    audioOutput->setVolume(1);
 
     shootCooldownTimer = new QTimer(this);
     shootCooldownTimer->setSingleShot(true);
@@ -90,7 +96,7 @@ void Player::move(int delta_x, int delta_y) {
 }
 
 void Player::check_game_over() {
-    if(getHealth() == 0) {
+    if(getHealth() <= 0) {
         QCoreApplication::quit();
     }
 }
@@ -170,4 +176,25 @@ void Player::handleScreenBorder(int& newX, int& newY) {
         newY = 70;
     else if (newY + boundingRect().height() > screenHeight)
         newY = screenHeight - boundingRect().height();
+}
+
+void Player::takeDamage(int damage) {
+    if(!iFrames){
+        Health::change_health(damage);
+        damageSoundPlayer->setAudioOutput(audioOutput);
+        if (damageSoundPlayer->playbackState() == QMediaPlayer::PlayingState) {
+            damageSoundPlayer->setPosition(0);
+        } else if (damageSoundPlayer->playbackState() == QMediaPlayer::StoppedState) {
+            damageSoundPlayer->play();
+        }
+        check_game_over();
+
+        iFrames = true;
+        QTimer::singleShot(1000, this, [this]() {
+            if (this->scene()) { // za izbjec seg fault nakon sta macka umre
+                iFrames = false;
+            }
+        });
+    }
+
 }

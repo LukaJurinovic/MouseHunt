@@ -3,6 +3,8 @@
         <file>bgsound.wav</file>
         <file>bullet.wav</file>
         <file>squeak.ogg</file>
+        <file>mouse_trap.wav</file>
+        <file>meow.wav</file>
     </qresource>
     <qresource prefix="/images">
         <file>player.png</file>
