@@ -21,7 +21,7 @@ HorizontalEnemyR::HorizontalEnemyR(QGraphicsItem *parent, int max_health, int ty
 
 void HorizontalEnemyR::handleScreenBorder(){
     if (pos().x() < 0){
-        destroy();
+        Object2D::destroy();
     }
 }
 
@@ -30,7 +30,6 @@ void HorizontalEnemyR::move(){
     for(int i = 0, n = colliding_items.size(); i < n; ++i) {
         if(typeid(*(colliding_items[i])) == typeid(Player)) {
             game->player->takeDamage(-1);
-            game->player->check_game_over();
             game->update_health();
             destroy();
             return;

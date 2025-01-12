@@ -77,7 +77,7 @@ MouseTrap::MouseTrap(QGraphicsItem* parent, int damage, int type) : Projectile(p
 Magic::Magic(QGraphicsItem *parent, int damage, int type)  : Projectile(parent, damage, type) {
     setPixmap(QPixmap(":/images/purple.png"));
     weaponSound = new QMediaPlayer();
-    weaponSound->setSource(QUrl("qrc:/sounds/bullet.wav"));
+    weaponSound->setSource(QUrl("qrc:/sounds/caster_purple.wav"));
 }
 
 void Magic::handleScreenBorder() {
@@ -93,7 +93,6 @@ void Magic::move() {
     for (QGraphicsItem* item : colliding_items) {
         if (Player* player = dynamic_cast<Player*>(item)) {
             game->player->takeDamage(getDamage());
-            game->player->check_game_over();
             game->update_health();
             destroy();
             return;

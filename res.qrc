@@ -5,6 +5,8 @@
         <file>squeak.ogg</file>
         <file>mouse_trap.wav</file>
         <file>meow.wav</file>
+        <file>caster_purple.wav</file>
+        <file>eating_sound.wav</file>
     </qresource>
     <qresource prefix="/images">
         <file>player.png</file>

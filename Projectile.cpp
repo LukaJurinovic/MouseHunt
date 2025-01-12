@@ -47,6 +47,23 @@ void Projectile::move() {
     for (QGraphicsItem* item : colliding_items) {
         if (Enemy* enemy = dynamic_cast<Enemy*>(item)) {
             if (enemy->getType() == getType()) {
+                qDebug() << "test";
+                if (getType() == 2 && enemy->getHealth() > getDamage()) {
+                    qDebug() << "a tribalo je"; //neznan luka iden rucat, nmg gladan aj pls uberi ovo
+                    QMediaPlayer* mediaPlayer = new QMediaPlayer(this);
+                    QAudioOutput* audioOutput = new QAudioOutput(this);
+                    mediaPlayer->setAudioOutput(audioOutput);
+                    audioOutput->setVolume(1.0);
+                    mediaPlayer->setSource(QUrl("qrc:/sounds/eating_sound.ogg"));
+                    mediaPlayer->play();
+
+                    connect(mediaPlayer, &QMediaPlayer::playbackStateChanged, mediaPlayer, [mediaPlayer, audioOutput](QMediaPlayer::PlaybackState state) {
+                        if (state == QMediaPlayer::StoppedState) {
+                            mediaPlayer->deleteLater();
+                            audioOutput->deleteLater();
+                        }
+                    });
+                }
                 enemy->change_health(getDamage());
                 if (enemy->getHealth() <= 0) {
                     enemy->destroy();

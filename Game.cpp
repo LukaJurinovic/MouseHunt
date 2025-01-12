@@ -71,7 +71,7 @@ Game::Game(QWidget *parent):QGraphicsView(parent) {
 
     hudContainer->setPos(0, 0);
 
-    spawn<FatMouseEnemy>(300);
+    spawn<FatMouseEnemy>(3000);
     spawn<HorizontalEnemyL>(10000);
     spawn<HorizontalEnemyR>(10000);
     spawn<CasterMouseEnemy>(7000);

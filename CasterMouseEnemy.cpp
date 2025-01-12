@@ -24,16 +24,6 @@ CasterMouseEnemy::CasterMouseEnemy(QGraphicsItem *parent, int max_health, int ty
 }
 
 void CasterMouseEnemy::move() {
-    QList<QGraphicsItem*> colliding_items = collidingItems();
-    for(int i = 0, n = colliding_items.size(); i < n; ++i) {
-        if(typeid(*(colliding_items[i])) == typeid(Player)) {
-            game->player->takeDamage(-1);
-            game->player->check_game_over();
-            game->update_health();
-            destroy();
-            return;
-        }
-    }
     qreal player_x = game->player->x();
     qreal enemy_x = x();
     qreal step_size = 5;
@@ -48,12 +38,15 @@ void CasterMouseEnemy::move() {
 }
 
 void CasterMouseEnemy::fireProjectile() {
-    if (qAbs(game->player->x() - x()) <= 50) { // Adjust range as needed
+    if(!this) return;
+    if (qAbs(game->player->x() - x()) <= 50) {
+        if (!scene()) return;
+
         Projectile* projectile = new Magic();
-        if (projectile && !(isDestroyed())) {
-            projectile->setPos(x() + 50, y()); // Position the projectile slightly to the right of the enemy
+        if (projectile) {
+            projectile->setPos(x() + 50, y());
             scene()->addItem(projectile);
-            projectile->playProjectileSound(); // Play sound if implemented
+            projectile->playProjectileSound();
         }
     }
 }

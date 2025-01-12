@@ -11,7 +11,6 @@ class Enemy : public Entity {
 private:
     int type;
     QTimer* sleepTimer;
-    bool destroyed;
 public:
     Enemy(QGraphicsItem* parent = nullptr, int max_health = 1, int type = 1);
     bool sleeping;
@@ -20,7 +19,6 @@ public:
     void handleScreenBorder() override;
     void sleep(int duration);
     void destroy() override;
-    bool isDestroyed() const;
     int getType();
 };
 

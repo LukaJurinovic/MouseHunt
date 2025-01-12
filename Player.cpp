@@ -5,6 +5,7 @@
 #include "Projectile.h"
 #include "ScreenConfig.h"
 #include "Game.h"
+#include "Enemy.h"
 #include "Player.h"
 
 extern Game* game;
@@ -90,6 +91,16 @@ void Player::move(int delta_x, int delta_y) {
     handleScreenBorder(newX, newY);
 
     setPos(newX, newY);
+
+    QList<QGraphicsItem*> colliding_items = collidingItems();
+    for (QGraphicsItem* item : colliding_items) {
+        Enemy* enemy = dynamic_cast<Enemy*>(item);
+        if (enemy) {
+            enemy->Object2D::destroy();
+            takeDamage(-1);
+            game->update_health();
+        }
+    }
 
     canMove = false;
     moveCooldownTimer->start(50);
