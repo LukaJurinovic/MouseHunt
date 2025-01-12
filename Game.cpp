@@ -71,11 +71,11 @@ Game::Game(QWidget *parent):QGraphicsView(parent) {
 
     hudContainer->setPos(0, 0);
 
-    spawn<FatMouseEnemy>(5000);
-    spawn<Enemy>(4000);
-    spawn<HorizontalEnemyL>(5000);
-    spawn<HorizontalEnemyR>(5000);
-    spawn<CasterMouseEnemy>(8000);
+    spawn<FatMouseEnemy>(4000);
+    spawn<Enemy>(7000);
+    spawn<HorizontalEnemyL>(15000);
+    spawn<HorizontalEnemyR>(10000);
+    spawn<CasterMouseEnemy>(12000);
 
     QMediaPlayer* music = new QMediaPlayer(this);
     QAudioOutput* audioOutput = new QAudioOutput(this);
