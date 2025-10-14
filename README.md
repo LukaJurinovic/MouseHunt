@@ -1,3 +1,4 @@
+<<<<<<< README.md
 # Upute za igru:
 arrow keys - kretanje
 space - pucanje
