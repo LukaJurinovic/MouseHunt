@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file>bgsound.wav</file>
+        <file>bullet.wav</file>
+        <file>squeak.ogg</file>
+        <file>mouse_trap.wav</file>
+        <file>meow.wav</file>
+        <file>caster_purple.wav</file>
+        <file>eating_sound.wav</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file>player.png</file>
+        <file>enemy.png</file>
+        <file>bullet.png</file>
+        <file>background.png</file>
+        <file>mis.png</file>
+        <file>fireball.png</file>
+        <file>fattie_mis.png</file>
+        <file>pixel_mis.png</file>
+        <file>laser_beam.png</file>
+        <file>evil_cat.png</file>
+        <file>cheese.png</file>
+        <file>mouse_trap.png</file>
+        <file>left_rat.png</file>
+        <file>right_rat.png</file>
+        <file>purple.png</file>
+        <file>evil_cat_with_gun.png</file>
+        <file>desert_eagle.png</file>
+        <file>obicni_mis.png</file>
+    </qresource>
+</RCC>
