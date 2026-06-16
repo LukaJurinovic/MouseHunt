@@ -1,0 +1,48 @@
+# --- Build output ---
+build/
+build*/
+debug/
+release/
+*.o
+*.obj
+*.exe
+*.dll
+*.a
+*.so
+*.dylib
+
+# --- qmake / Qt generated ---
+Makefile
+Makefile.*
+*.pro.user
+*.pro.user.*
+.qmake.stash
+.qmake.cache
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+object_script.*
+
+# --- Qt Creator clangd cache / generic project files ---
+.qtc_clangd/
+compile_commands.json
+*.creator
+*.creator.user
+*.config
+*.files
+*.includes
+*.cflags
+*.cxxflags
+
+# --- Archives / misc ---
+*.zip
+.claude
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/

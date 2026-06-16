@@ -1,31 +1,26 @@
 <RCC>
-    <qresource prefix="/sounds">
-        <file>bgsound.wav</file>
-        <file>bullet.wav</file>
-        <file>squeak.ogg</file>
-        <file>mouse_trap.wav</file>
-        <file>meow.wav</file>
-        <file>caster_purple.wav</file>
-        <file>eating_sound.wav</file>
-    </qresource>
     <qresource prefix="/images">
-        <file>player.png</file>
-        <file>enemy.png</file>
-        <file>bullet.png</file>
-        <file>background.png</file>
-        <file>mis.png</file>
-        <file>fireball.png</file>
-        <file>fattie_mis.png</file>
-        <file>pixel_mis.png</file>
-        <file>laser_beam.png</file>
-        <file>evil_cat.png</file>
-        <file>cheese.png</file>
-        <file>mouse_trap.png</file>
-        <file>left_rat.png</file>
-        <file>right_rat.png</file>
-        <file>purple.png</file>
-        <file>evil_cat_with_gun.png</file>
-        <file>desert_eagle.png</file>
-        <file>obicni_mis.png</file>
+        <file alias="background.png">assets/images/background.png</file>
+        <file alias="bullet.png">assets/images/bullet.png</file>
+        <file alias="mouse.png">assets/images/mouse.png</file>
+        <file alias="fat_mouse.png">assets/images/fat_mouse.png</file>
+        <file alias="caster_mouse.png">assets/images/caster_mouse.png</file>
+        <file alias="rat_left.png">assets/images/rat_left.png</file>
+        <file alias="rat_right.png">assets/images/rat_right.png</file>
+        <file alias="evil_cat.png">assets/images/evil_cat.png</file>
+        <file alias="evil_cat_with_gun.png">assets/images/evil_cat_with_gun.png</file>
+        <file alias="cheese.png">assets/images/cheese.png</file>
+        <file alias="mouse_trap.png">assets/images/mouse_trap.png</file>
+        <file alias="purple.png">assets/images/purple.png</file>
+        <file alias="desert_eagle.png">assets/images/desert_eagle.png</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file alias="bgsound.wav">assets/sounds/bgsound.wav</file>
+        <file alias="bullet.wav">assets/sounds/bullet.wav</file>
+        <file alias="squeak.ogg">assets/sounds/squeak.ogg</file>
+        <file alias="mouse_trap.wav">assets/sounds/mouse_trap.wav</file>
+        <file alias="meow.wav">assets/sounds/meow.wav</file>
+        <file alias="caster_purple.wav">assets/sounds/caster_purple.wav</file>
+        <file alias="eating_sound.wav">assets/sounds/eating_sound.wav</file>
     </qresource>
 </RCC>
